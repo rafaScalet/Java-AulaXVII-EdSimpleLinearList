@@ -22,4 +22,14 @@ public class SimpleLinearList {
             this.top.setNext(serv);
         }
     }
+
+    public void append(Node node) {
+        if (empty()) {
+            this.top = this.bottom = node;
+        } else {
+            Node serv = this.bottom;
+            this.bottom = node;
+            serv.setNext(node);
+        }
+    }
 }
