@@ -32,4 +32,13 @@ public class SimpleLinearList {
             serv.setNext(node);
         }
     }
+
+    public void show() {
+        Node serv = this.top;
+        while (serv != this.bottom) {
+            System.out.println("-->" + serv.getValue());
+            serv = serv.getNext();
+        }
+        System.out.println("-->" + serv.getValue());
+    }
 }
