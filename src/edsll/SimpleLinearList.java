@@ -53,4 +53,31 @@ public class SimpleLinearList {
     private long length() {
         return this.size;
     }
+
+    public Node searchWithClone(long position) {
+        if (this.empty() || position > this.length()) {
+            return null;
+        }
+
+        Node serv = this.top;
+        for(int indx = 1; position != indx && serv != null; indx++){
+            serv = serv.getNext();
+        }
+
+        Node retNode = new Node(serv.getId(), serv.getValue());
+        return retNode;
+    }
+
+    public NodeValue searchWithInterface(long position) {
+        if (this.empty() || position > this.length()) {
+            return null;
+        }
+
+        Node serv = this.top;
+        for(int indx = 1; position != indx && serv != null; indx++){
+            serv = serv.getNext();
+        }
+
+        return (NodeValue) serv;
+    }
 }

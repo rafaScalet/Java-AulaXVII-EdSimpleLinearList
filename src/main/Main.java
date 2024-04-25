@@ -27,8 +27,14 @@ public class Main {
         }
         list.show();
 
-
+        System.out.println("Search nth. imform the position: ");
+        int position = in.nextInt();
         in.close();
 
+        Node searchNodeClone = list.searchWithClone(position);
+        NodeValue searchNodeInterface = list.searchWithInterface(position);
+
+        System.out.println("Node: " + searchNodeClone.getValue());
+        System.out.println("Node: " + searchNodeInterface.getValue());
     }
 }
