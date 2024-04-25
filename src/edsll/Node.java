@@ -1,6 +1,6 @@
 package edsll;
 
-public class Node {
+public class Node implements NodeValue{
     private int id;
     private Object value;
     private Node next;
