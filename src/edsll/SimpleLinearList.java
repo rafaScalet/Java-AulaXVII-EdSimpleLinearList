@@ -36,7 +36,7 @@ public class SimpleLinearList {
     public void show() {
         Node serv = this.top;
         while (serv != this.bottom) {
-            System.out.println("-->" + serv.getValue());
+            System.out.println("-->" + serv.getValue().toString());
             serv = serv.getNext();
         }
         System.out.println("-->" + serv.getValue());

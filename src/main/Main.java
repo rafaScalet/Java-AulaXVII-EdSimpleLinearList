@@ -2,6 +2,7 @@ package main;
 
 import java.util.Scanner;
 import edsll.Node;
+import edsll.Nothing;
 import edsll.SimpleLinearList;
 
 public class Main {
@@ -9,14 +10,19 @@ public class Main {
         SimpleLinearList list = new SimpleLinearList();
         Scanner in = new Scanner(System.in);
 
-        for(int number = 0, indx = 0; number >=0; indx++){
+        int id = 0;
+        String name;
+        String email;
+
+        for(; id >=0;){
             System.out.print("Numbers: ");
-            number = in.nextInt();
-            if(number < 0){
+            id = in.nextInt();
+            name = in.next();
+            email = in.next();
+            if(id < 0){
                 break;
             }
-            list.add(new Node(indx, number));
-            list.append(new Node(indx, number));
+            list.add(new Node(id, new Nothing(id, name, email)));
         }
         list.show();
         in.close();
