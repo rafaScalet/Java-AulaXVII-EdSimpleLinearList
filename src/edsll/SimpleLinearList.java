@@ -46,12 +46,31 @@ public class SimpleLinearList {
         if (this.length() <= 1) {
             retNode = this.top;
             this.top = this.bottom = null;
-            this.decSize();
         } else {
             retNode = this.top;
             serv = retNode.getNext();
             retNode.setNext(null);
             this.top = serv;
+        }
+        this.decSize();
+
+        return retNode;
+    }
+
+    public Node pop() {
+        Node retNode = null;
+        Node serv = null;
+        if (this.empty()) {
+            return null;
+        }
+        if (this.length() <= 1) {
+            retNode = this.bottom;
+            this.top = this.bottom = null;
+        } else {
+            retNode = this.bottom;
+            serv = this.search(this.length() - 1);
+            serv.setNext(null);;
+            this.bottom = serv;
         }
         this.decSize();
 
@@ -112,5 +131,18 @@ public class SimpleLinearList {
         }
 
         return (NodeValue) serv;
+    }
+
+    private Node search(long position) {
+        if (this.empty() || position > this.length()) {
+            return null;
+        }
+
+        Node serv = this.top;
+        for (int indx = 1; position != indx && serv != null; indx++) {
+            serv = serv.getNext();
+        }
+
+        return serv;
     }
 }

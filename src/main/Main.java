@@ -23,7 +23,7 @@ public class Main {
             if (id < 0) {
                 break;
             }
-            list.add(new Node(id, new Nothing(id, name, email)));
+            list.append(new Node(id, new Nothing(id, name, email)));
         }
         list.show();
 
@@ -41,6 +41,10 @@ public class Main {
 
         System.out.println("Removing the first node from the list");
         Node retNode = list.remove();
+        list.show();
+
+        System.out.println("Removing the last node from the list");
+        retNode = list.pop();
         list.show();
     }
 }
