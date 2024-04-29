@@ -27,6 +27,7 @@ public class Main {
         }
         list.show();
 
+        /*
         System.out.println("Search nth. imform the position: ");
         int position = in.nextInt();
         in.close();
@@ -36,5 +37,10 @@ public class Main {
 
         System.out.println("Node: " + searchNodeClone.getValue());
         System.out.println("Node: " + searchNodeInterface.getValue());
+        */
+
+        System.out.println("Removing the first node from the list");
+        Node retNode = list.remove();
+        list.show();
     }
 }

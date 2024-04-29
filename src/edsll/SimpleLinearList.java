@@ -37,6 +37,27 @@ public class SimpleLinearList {
         this.addSize();
     }
 
+    public Node remove(){
+        Node retNode = null;
+        Node serv = null;
+        if(this.empty()){
+            return null;
+        }
+        if(this.length() <= 1){
+            retNode = this.top;
+            this.top = this.bottom = null;
+            this.decSize();
+        }
+
+        retNode = this.top;
+        serv = retNode.getNext();
+        retNode.setNext(null);
+        this.top = serv;
+        this.decSize();
+
+        return retNode;
+    }
+
     public void show() {
         Node serv = this.top;
         while (serv != this.bottom) {
@@ -48,6 +69,10 @@ public class SimpleLinearList {
 
     private void addSize() {
         this.size++;
+    }
+
+    private void decSize(){
+        this.size--;
     }
 
     private long length() {
