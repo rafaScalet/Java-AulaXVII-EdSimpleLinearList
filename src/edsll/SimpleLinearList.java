@@ -37,25 +37,31 @@ public class SimpleLinearList {
         this.addSize();
     }
 
-    public Node remove(){
+    public Node remove() {
         Node retNode = null;
         Node serv = null;
-        if(this.empty()){
+        if (this.empty()) {
             return null;
         }
-        if(this.length() <= 1){
+        if (this.length() <= 1) {
             retNode = this.top;
             this.top = this.bottom = null;
             this.decSize();
+        } else {
+            retNode = this.top;
+            serv = retNode.getNext();
+            retNode.setNext(null);
+            this.top = serv;
         }
-
-        retNode = this.top;
-        serv = retNode.getNext();
-        retNode.setNext(null);
-        this.top = serv;
         this.decSize();
 
         return retNode;
+    }
+
+    public void clear() {
+        while (!this.empty()) {
+            this.remove();
+        }
     }
 
     public void show() {
@@ -64,14 +70,16 @@ public class SimpleLinearList {
             System.out.println("-->" + serv.getValue().toString());
             serv = serv.getNext();
         }
-        System.out.println("-->" + serv.getValue());
+        if(serv != null){
+            System.out.println("-->" + serv.getValue());
+        }
     }
 
     private void addSize() {
         this.size++;
     }
 
-    private void decSize(){
+    private void decSize() {
         this.size--;
     }
 
@@ -85,7 +93,7 @@ public class SimpleLinearList {
         }
 
         Node serv = this.top;
-        for(int indx = 1; position != indx && serv != null; indx++){
+        for (int indx = 1; position != indx && serv != null; indx++) {
             serv = serv.getNext();
         }
 
@@ -99,7 +107,7 @@ public class SimpleLinearList {
         }
 
         Node serv = this.top;
-        for(int indx = 1; position != indx && serv != null; indx++){
+        for (int indx = 1; position != indx && serv != null; indx++) {
             serv = serv.getNext();
         }
 
