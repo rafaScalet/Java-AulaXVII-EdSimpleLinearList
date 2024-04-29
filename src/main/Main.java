@@ -27,8 +27,7 @@ public class Main {
         }
         list.show();
 
-        /*
-        System.out.println("Search nth. imform the position: ");
+        System.out.print("\nSearch nth. imform the position: ");
         int position = in.nextInt();
         in.close();
 
@@ -37,13 +36,12 @@ public class Main {
 
         System.out.println("Node: " + searchNodeClone.getValue());
         System.out.println("Node: " + searchNodeInterface.getValue());
-        */
 
-        System.out.println("Removing the first node from the list");
+        System.out.println("\nRemoving the first node from the list");
         Node retNode = list.remove();
         list.show();
 
-        System.out.println("Removing the last node from the list");
+        System.out.println("\nRemoving the last node from the list");
         retNode = list.pop();
         list.show();
     }
